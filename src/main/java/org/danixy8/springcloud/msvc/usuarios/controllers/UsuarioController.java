@@ -18,9 +18,12 @@ public class UsuarioController {
     private UsuarioService service;
 
     @GetMapping
-    public List<Usuario> listar(){
-      return service.listar();
-    };
+//    public List<Usuario> listar(){
+//      return service.listar();
+//    };
+    public Map<String, List<Usuario>> listar(){
+        return Collections.singletonMap("users", service.listar());
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> detalle(@PathVariable Long id){
@@ -64,7 +67,7 @@ public class UsuarioController {
             Usuario usuarioDb = o.get();
             if(usuario.getEmail().equalsIgnoreCase(usuarioDb.getEmail()) || !usuario.getEmail().isEmpty() && service.porEmail(usuario.getEmail()).isPresent()){
                 return ResponseEntity.badRequest()
-                        .body(Collections.singletonMap("mensaje", "Ya existe un usuario con ese correo eletronico"));
+                        .body(Collections.singletonMap("mensaje", "Ya existe un usuario con ese correo electronico!"));
             }
 
             usuarioDb.setNombre(usuario.getNombre());
