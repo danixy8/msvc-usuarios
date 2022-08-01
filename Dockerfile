@@ -29,5 +29,5 @@ EXPOSE $PORT
 #ENTRYPOINT ["java", "-jar", "msvc-usuarios-0.0.1-SNAPSHOT.jar"]
 #entrypoint ejecuta un comando una ves arrancado el contenedor y es inmutable, no permite que se ejecuten comandos externos al contenedor
 #sin embargo con CMD si ejecutamos un comando interactivo va a sobreescribir lo que esta en llaves cuadradas
-#CMD ["java", "-jar", "msvc-usuarios-0.0.1-SNAPSHOT.jar"]
-CMD sleep 20 && java -jar msvc-usuarios-0.0.1-SNAPSHOT.jar
+CMD ["java", "-jar", "msvc-usuarios-0.0.1-SNAPSHOT.jar"]
+#CMD sleep 20 && java -jar msvc-usuarios-0.0.1-SNAPSHOT.jar
